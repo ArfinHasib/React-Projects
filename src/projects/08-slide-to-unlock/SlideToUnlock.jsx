@@ -18,13 +18,13 @@ export default function SlideToUnlock() {
       console.log(e.target.value);
    };
    const lockScreen = () => {
-      setLockSliderValue(0);
       setShowLockSlider(true);
       setUiProps({
          uiText: 'Unlock screen',
          uiColor: '#eee',
          uiBg: `url(${LockScreenImg}) center/cover no-repeat`,
       });
+      setLockSliderValue(0);
    };
 
    useEffect(() => {
