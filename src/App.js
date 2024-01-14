@@ -7,7 +7,8 @@ import './App.css';
 // import TempControllerApp from './projects/06-Temp-Controller/TempControllerApp';
 // import LightDarkMode from './projects/07-Light&DarkMode/Light&DarkMode';
 // import SlideToUnlock from './projects/08-slide-to-unlock/SlideToUnlock';
-import Slider from './projects/09-slider/Slider';
+// import Slider from './projects/09-slider/Slider';
+import HiddenSearchBar from './projects/10-hidden-search-bar/HiddenSearchBar';
 
 function App() {
    return (
@@ -20,7 +21,8 @@ function App() {
          {/* <TempControllerApp /> */}
          {/* <LightDarkMode /> */}
          {/* <SlideToUnlock /> */}
-         <Slider />
+         {/* <Slider /> */}
+         <HiddenSearchBar />
       </div>
    );
 }
