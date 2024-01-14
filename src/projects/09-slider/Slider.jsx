@@ -20,6 +20,7 @@ export default function Slider() {
 
    if (slideValue < 25 && slideValue <= 50) {
       bgColor = 'blue';
+      textColor = 'white';
    }
 
    if (slideValue > 51 && slideValue <= 75) {

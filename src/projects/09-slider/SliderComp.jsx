@@ -13,6 +13,8 @@ export default function SliderComp({
       background: 'lightgray',
       cursor: 'pointer',
       opacity: 0.7,
+      borderRadius: '50px',
+      padding: '5px',
    };
 
    return (
