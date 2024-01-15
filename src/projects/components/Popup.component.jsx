@@ -20,8 +20,8 @@ export default function Popup({ type, title, text, handleClose }) {
       <div style={popupContainer}>
          <div className={`${type}`} style={popupStyle}>
             <div className='alert-close'>
-               <div className='d-flex flex-column'>
-                  <h4 className='mb-1'>{title && 'popup title'}</h4>
+               <div className='d-flex flex-column text-left'>
+                  <h4 className='mb-1'>{title}</h4>
                   <p>{text && text}</p>
                </div>
                <Button
