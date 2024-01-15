@@ -8,7 +8,8 @@ import './App.css';
 // import LightDarkMode from './projects/07-Light&DarkMode/Light&DarkMode';
 // import SlideToUnlock from './projects/08-slide-to-unlock/SlideToUnlock';
 // import Slider from './projects/09-slider/Slider';
-import HiddenSearchBar from './projects/10-hidden-search-bar/HiddenSearchBar';
+// import HiddenSearchBar from './projects/10-hidden-search-bar/HiddenSearchBar';
+import PopupApp from './projects/11-MagicPopUp/PopupApp';
 
 function App() {
    return (
@@ -22,7 +23,8 @@ function App() {
          {/* <LightDarkMode /> */}
          {/* <SlideToUnlock /> */}
          {/* <Slider /> */}
-         <HiddenSearchBar />
+         {/* <HiddenSearchBar /> */}
+         <PopupApp />
       </div>
    );
 }
