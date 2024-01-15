@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
 
-export default function Popup({ type, title, text, handleClose }) {
+export default function Popup({ type, title, text, handleClose, trigger }) {
    const popupContainer = {
       position: 'absolute',
       top: '0',
@@ -17,20 +17,22 @@ export default function Popup({ type, title, text, handleClose }) {
    };
 
    return (
-      <div style={popupContainer}>
-         <div className={`${type}`} style={popupStyle}>
-            <div className='alert-close'>
-               <div className='d-flex flex-column text-left'>
-                  <h4 className='mb-1'>{title}</h4>
-                  <p>{text && text}</p>
+      trigger && (
+         <div style={popupContainer}>
+            <div className={`${type}`} style={popupStyle}>
+               <div className='alert-close'>
+                  <div className='d-flex flex-column text-left'>
+                     <h4 className='mb-1'>{title}</h4>
+                     <p>{text && text}</p>
+                  </div>
+                  <Button
+                     btnClass='btn-close'
+                     text='&times;'
+                     onClick={handleClose}
+                  />
                </div>
-               <Button
-                  btnClass='btn-close'
-                  text='&times;'
-                  onClick={handleClose}
-               />
             </div>
          </div>
-      </div>
+      )
    );
 }
