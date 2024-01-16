@@ -9,7 +9,8 @@ import './App.css';
 // import SlideToUnlock from './projects/08-slide-to-unlock/SlideToUnlock';
 // import Slider from './projects/09-slider/Slider';
 // import HiddenSearchBar from './projects/10-hidden-search-bar/HiddenSearchBar';
-import PopupApp from './projects/11-MagicPopUp/PopupApp';
+// import PopupApp from './projects/11-MagicPopUp/PopupApp';
+import ProgressBarContainer from './projects/12-Progress-Bar/ProgressBarContainer';
 
 function App() {
    return (
@@ -24,7 +25,8 @@ function App() {
          {/* <SlideToUnlock /> */}
          {/* <Slider /> */}
          {/* <HiddenSearchBar /> */}
-         <PopupApp />
+         {/* <PopupApp /> */}
+         <ProgressBarContainer />
       </div>
    );
 }
