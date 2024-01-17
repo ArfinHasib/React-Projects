@@ -4,19 +4,24 @@ import { ProgressBar } from '../components/ProgressBar';
 
 export default function ProgressBarContainer() {
    const [completed, setCompleted] = useState(0);
+   const [status, setStatus] = useState({
+      ui: 55,
+      ux: 99,
+      data: 20,
+   });
 
    const projectData = [
       {
          bgColor: '#7633f9',
-         completed: 57,
+         completed: status.ui,
       },
       {
          bgColor: '#28a745',
-         completed: 20,
+         completed: status.ux,
       },
       {
          bgColor: '#dc3545',
-         completed: 88,
+         completed: status.data,
       },
    ];
 
@@ -43,9 +48,9 @@ export default function ProgressBarContainer() {
                <input
                   type='number'
                   style={inputStyle}
-                  onChange={(e) => console.log(e.target.value)}
                   ref={uiInput}
-                  value={''}
+                  value={status.ui}
+                  onChange={(e) => setStatus({ ...status, ui: e.target.value })}
                />
             </li>
             <li>
@@ -53,8 +58,8 @@ export default function ProgressBarContainer() {
                <input
                   type='number'
                   style={inputStyle}
-                  onChange={(e) => console.log(e.target.value)}
-                  value={''}
+                  value={status.ux}
+                  onChange={(e) => setStatus({ ...status, ux: e.target.value })}
                />
             </li>
          </ul>
