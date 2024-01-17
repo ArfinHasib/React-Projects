@@ -1,8 +1,25 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Title from '../components/Title';
 import { ProgressBar } from '../components/ProgressBar';
 
 export default function ProgressBarContainer() {
+   const [completed, setCompleted] = useState(0);
+
+   const projectData = [
+      {
+         bgColor: '#7633f9',
+         completed: 57,
+      },
+      {
+         bgColor: '#28a745',
+         completed: 20,
+      },
+      {
+         bgColor: '#dc3545',
+         completed: 88,
+      },
+   ];
+
    const inputStyle = {
       width: 50,
       border: 'none',
@@ -41,7 +58,13 @@ export default function ProgressBarContainer() {
                />
             </li>
          </ul>
-         <ProgressBar />
+         {projectData.map((data) => (
+            <ProgressBar
+               key={data.bgColor}
+               bgColor={data.bgColor}
+               completed={data.completed}
+            />
+         ))}
       </div>
    );
 }
