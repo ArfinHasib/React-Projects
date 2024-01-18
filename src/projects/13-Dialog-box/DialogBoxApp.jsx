@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '../components/Button';
 import { BsFillEmojiFrownFill, BsFillEmojiSmileFill } from 'react-icons/bs';
-
-export default function DialogBoxApp({ width = 350 }) {
+import './bounce.css';
+export default function DialogBox({ width = 350 }) {
    const [subscription, setSubscription] = useState({
       title: 'Hello',
       description: 'Would you like to subscribe?',
@@ -12,13 +12,12 @@ export default function DialogBoxApp({ width = 350 }) {
 
    const handleSubscribe = () => {
       setSubscription({
-         title: 'Thank You',
+         title: 'Thank you',
          description: 'for your subscription',
          state: 'subscribed',
          justifyContent: 'flex-end',
       });
    };
-
    const handleUnsubscribe = () => {
       setSubscription({
          title: 'Sorry',
@@ -34,24 +33,33 @@ export default function DialogBoxApp({ width = 350 }) {
       justifySelf: 'center',
       color:
          subscription.state === 'subscribed'
-            ? 'rgba(59, 137, 90, .4)'
-            : 'rgba(25, 118, 160, .4)',
+            ? 'rgba(59,137,90,0.4)'
+            : 'rgba(25,118,160,0.4)',
    };
-
    useEffect(() => {
       if (subscription.state === 'subscribed') {
          setIcon(<BsFillEmojiSmileFill style={iconStyle} />);
-         document.body.style.background = 'rgba(59, 137, 90, .4)';
+         document.body.style.background = 'rgba(59,137,90,0.4)';
       }
-
       if (subscription.state === 'unsubscribed') {
          setIcon(<BsFillEmojiFrownFill style={iconStyle} />);
-         document.body.style.background = 'rgba(25, 118, 160, .4)';
+         document.body.style.background = 'rgba(25,118,160,0.4)';
       }
    }, [subscription.state]);
 
+   const [bounce, setBounce] = useState('');
+
+   useEffect(() => {
+      setTimeout(() => {
+         setBounce('');
+      }, 500);
+      return () => setBounce('bounce');
+   }, [subscription.state]);
    return (
-      <div className='card bg-light m-auto mt-4' style={{ width }}>
+      <div
+         className={`card bg-light m-auto mt-4 ${bounce}`}
+         style={{ width: width }}
+      >
          <div className='card-body'>
             <div
                className='d-grid'
@@ -80,7 +88,6 @@ export default function DialogBoxApp({ width = 350 }) {
             {subscription.state === null && (
                <Button text={'Cancel'} btnClass={'btn-light'} />
             )}
-
             {subscription.state === 'subscribed' ? null : (
                <Button
                   text={'Subscribe'}
@@ -88,7 +95,6 @@ export default function DialogBoxApp({ width = 350 }) {
                   onClick={handleSubscribe}
                />
             )}
-
             {subscription.state === 'subscribed' ? (
                <Button
                   text={'Unsubscribe'}
