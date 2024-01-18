@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import { BsFillEmojiFrownFill, BsFillEmojiSmileFill } from 'react-icons/bs';
 
@@ -19,8 +19,36 @@ export default function DialogBoxApp({ width = 350 }) {
       });
    };
 
+   const handleUnsubscribe = () => {
+      setSubscription({
+         title: 'Sorry',
+         description: 'to see you go.',
+         state: 'unsubscribed',
+         justifyContent: 'flex-end',
+      });
+   };
+
    const [icon, setIcon] = useState();
-   let iconStyle = {};
+   let iconStyle = {
+      fontSize: '80px',
+      justifySelf: 'center',
+      color:
+         subscription.state === 'subscribed'
+            ? 'rgba(59, 137, 90, .4)'
+            : 'rgba(25, 118, 160, .4)',
+   };
+
+   useEffect(() => {
+      if (subscription.state === 'subscribed') {
+         setIcon(<BsFillEmojiSmileFill style={iconStyle} />);
+         document.body.style.background = 'rgba(59, 137, 90, .4)';
+      }
+
+      if (subscription.state === 'unsubscribed') {
+         setIcon(<BsFillEmojiFrownFill style={iconStyle} />);
+         document.body.style.background = 'rgba(25, 118, 160, .4)';
+      }
+   }, [subscription.state]);
 
    return (
       <div className='card bg-light m-auto mt-4' style={{ width }}>
@@ -38,7 +66,7 @@ export default function DialogBoxApp({ width = 350 }) {
                   <h2 className='card-title'>{subscription.title}</h2>
                   <h3 className='card-text'>{subscription.description}</h3>
                </section>
-               <div>icon</div>
+               <div>{icon}</div>
             </div>
          </div>
          <hr />
@@ -62,7 +90,11 @@ export default function DialogBoxApp({ width = 350 }) {
             )}
 
             {subscription.state === 'subscribed' ? (
-               <Button text={'Unsubscribe'} btnClass={'btn-danger btn-block'} />
+               <Button
+                  text={'Unsubscribe'}
+                  btnClass={'btn-danger btn-block'}
+                  onClick={handleUnsubscribe}
+               />
             ) : null}
          </div>
       </div>
