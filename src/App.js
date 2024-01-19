@@ -11,7 +11,8 @@ import './App.css';
 // import HiddenSearchBar from './projects/10-hidden-search-bar/HiddenSearchBar';
 // import PopupApp from './projects/11-MagicPopUp/PopupApp';
 // import ProgressBarContainer from './projects/12-Progress-Bar/ProgressBarContainer';
-import DialogBoxApp from './projects/13-Dialog-box/DialogBoxApp';
+// import DialogBoxApp from './projects/13-Dialog-box/DialogBoxApp';
+import FilterContextApp from './projects/14-Filter-Context/FilterContextApp';
 
 function App() {
    return (
@@ -28,7 +29,8 @@ function App() {
          {/* <HiddenSearchBar /> */}
          {/* <PopupApp /> */}
          {/* <ProgressBarContainer /> */}
-         <DialogBoxApp />
+         {/* <DialogBoxApp /> */}
+         <FilterContextApp />
       </div>
    );
 }
