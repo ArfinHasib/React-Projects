@@ -8,7 +8,7 @@ export default function Contact({
 }) {
    return (
       <div className={`card bg-light m-auto ${cardColor}`} style={{ width }}>
-         <div className='card-header'>asfsaf</div>
+         <div className='card-header'>{contact.first_name}</div>
          <div className={`card-body text-left`}>
             <h4 className='card-text'>
                <span className={`fw-bold ${textColor}`}>Last Name: </span>

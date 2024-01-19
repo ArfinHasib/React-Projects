@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Title from '../components/Title';
 
 import ContactData from './Data.json';
@@ -10,6 +10,8 @@ export default function FilterContextApp() {
       inputSearch.current.focus();
    });
 
+   const [searchContact, setSearchContact] = useState('');
+
    return (
       <div className='text-center'>
          <Title text='Filter Context App' />
@@ -19,12 +21,30 @@ export default function FilterContextApp() {
             className='mb-2 p-1'
             style={{ padding: '.3rem .5rem' }}
             ref={inputSearch}
+            onChange={(e) => setSearchContact(e.target.value)}
          />
          <section
             className='d-flex'
-            style={{ gap: 15, maxWidth: 1600, margin: 'auto' }}
+            style={{
+               gap: 15,
+               maxWidth: 1600,
+               margin: 'auto',
+               flexWrap: 'wrap',
+            }}
          >
-            {ContactData.map((contact) => (
+            {ContactData.filter((data) => {
+               if (searchContact === '') {
+                  return data;
+               } else if (
+                  data.first_name
+                     .toLocaleLowerCase()
+                     .includes(searchContact.toLocaleLowerCase())
+               ) {
+                  return data;
+               }
+
+               return null;
+            }).map((contact) => (
                <Contact
                   key={contact.id}
                   contact={contact}
