@@ -12,7 +12,8 @@ import './App.css';
 // import PopupApp from './projects/11-MagicPopUp/PopupApp';
 // import ProgressBarContainer from './projects/12-Progress-Bar/ProgressBarContainer';
 // import DialogBoxApp from './projects/13-Dialog-box/DialogBoxApp';
-import FilterContextApp from './projects/14-Filter-Context/FilterContextApp';
+// import FilterContextApp from './projects/14-Filter-Context/FilterContextApp';
+import RegForm from './projects/15-Reg-Form/RegForm';
 
 function App() {
    return (
@@ -30,7 +31,8 @@ function App() {
          {/* <PopupApp /> */}
          {/* <ProgressBarContainer /> */}
          {/* <DialogBoxApp /> */}
-         <FilterContextApp />
+         {/* <FilterContextApp /> */}
+         <RegForm />
       </div>
    );
 }
