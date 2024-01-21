@@ -2,14 +2,14 @@ import React from 'react';
 import { DeleteIcon, Icons, NoteStyle } from './NoteStyle';
 import { MdOutlineNoteAlt, MdDeleteForever } from 'react-icons/md';
 
-export default function NewNote({ note }) {
+export default function NewNote({ note, onDelete }) {
    return (
       <NoteStyle className='card'>
          <div className='card-header text-right'>
             <Icons>
                <MdOutlineNoteAlt />
                <DeleteIcon>
-                  <MdDeleteForever />
+                  <MdDeleteForever onClick={() => onDelete(note.id)} />
                </DeleteIcon>
             </Icons>
          </div>

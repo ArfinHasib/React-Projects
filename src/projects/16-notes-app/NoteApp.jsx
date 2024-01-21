@@ -12,6 +12,10 @@ export default function NoteApp() {
       setNotes(newNotes);
    };
 
+   const deleteNote = (id) => {
+      setNotes(notes.filter((note) => note.id !== id));
+   };
+
    return (
       <div className='container'>
          <Button
@@ -25,7 +29,7 @@ export default function NoteApp() {
             style={{ gap: 25, flexWrap: 'wrap' }}
          >
             {notes.map((note) => (
-               <NewNote key={note.id} note={note} />
+               <NewNote key={note.id} note={note} onDelete={deleteNote} />
             ))}
          </div>
       </div>
