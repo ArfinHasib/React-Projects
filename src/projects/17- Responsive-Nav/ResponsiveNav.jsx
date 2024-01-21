@@ -1,9 +1,10 @@
 import React from 'react';
 import NavItem from './NavItem';
+import { NavStyle } from './NavStyle';
 
 export default function ResponsiveNav() {
    return (
-      <nav>
+      <NavStyle className='navbar bg-primary text-light'>
          <div className='navbar-logo'>
             <a href='#' className='navbar-brand'>
                Navbar BM
@@ -17,6 +18,6 @@ export default function ResponsiveNav() {
                <NavItem text='Contact' />
             </ul>
          </div>
-      </nav>
+      </NavStyle>
    );
 }
