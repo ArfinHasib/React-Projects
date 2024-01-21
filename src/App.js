@@ -14,7 +14,8 @@ import './App.css';
 // import DialogBoxApp from './projects/13-Dialog-box/DialogBoxApp';
 // import FilterContextApp from './projects/14-Filter-Context/FilterContextApp';
 // import RegForm from './projects/15-Reg-Form/RegForm';
-import NoteApp from './projects/16-notes-app/NoteApp';
+// import NoteApp from './projects/16-notes-app/NoteApp';
+import ResponsiveNav from './projects/17- Responsive-Nav/ResponsiveNav';
 
 function App() {
    return (
@@ -34,7 +35,8 @@ function App() {
          {/* <DialogBoxApp /> */}
          {/* <FilterContextApp /> */}
          {/* <RegForm /> */}
-         <NoteApp />
+         {/* <NoteApp /> */}
+         <ResponsiveNav />
       </div>
    );
 }
