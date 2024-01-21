@@ -13,7 +13,8 @@ import './App.css';
 // import ProgressBarContainer from './projects/12-Progress-Bar/ProgressBarContainer';
 // import DialogBoxApp from './projects/13-Dialog-box/DialogBoxApp';
 // import FilterContextApp from './projects/14-Filter-Context/FilterContextApp';
-import RegForm from './projects/15-Reg-Form/RegForm';
+// import RegForm from './projects/15-Reg-Form/RegForm';
+import NoteApp from './projects/16-notes-app/NoteApp';
 
 function App() {
    return (
@@ -32,7 +33,8 @@ function App() {
          {/* <ProgressBarContainer /> */}
          {/* <DialogBoxApp /> */}
          {/* <FilterContextApp /> */}
-         <RegForm />
+         {/* <RegForm /> */}
+         <NoteApp />
       </div>
    );
 }
