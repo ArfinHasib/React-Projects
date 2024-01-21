@@ -16,6 +16,19 @@ export default function NoteApp() {
       setNotes(notes.filter((note) => note.id !== id));
    };
 
+   const cards = [
+      'card-info',
+      'card-danger',
+      'card-primary',
+      'card-success',
+      'card-warning',
+   ];
+
+   const randomizeBg = () => {
+      const random = Math.floor(Math.random() * cards.length);
+      return cards[random];
+   };
+
    return (
       <div className='container'>
          <Button
@@ -29,7 +42,12 @@ export default function NoteApp() {
             style={{ gap: 25, flexWrap: 'wrap' }}
          >
             {notes.map((note) => (
-               <NewNote key={note.id} note={note} onDelete={deleteNote} />
+               <NewNote
+                  key={note.id}
+                  note={note}
+                  onDelete={deleteNote}
+                  cardBg={randomizeBg}
+               />
             ))}
          </div>
       </div>

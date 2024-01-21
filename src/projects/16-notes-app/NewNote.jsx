@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { DeleteIcon, Icons, NoteStyle } from './NoteStyle';
 import { MdOutlineNoteAlt, MdDeleteForever } from 'react-icons/md';
 
-export default function NewNote({ note, onDelete }) {
+export default function NewNote({ note, onDelete, text, cardBg }) {
+   const [newCardBg, setNewCardBg] = useState();
+
+   useEffect(() => {
+      !newCardBg && setNewCardBg(cardBg);
+   }, [newCardBg]);
+
    return (
-      <NoteStyle className='card'>
+      <NoteStyle className={`card ${newCardBg}`}>
          <div className='card-header text-right'>
             <Icons>
                <MdOutlineNoteAlt />
@@ -15,7 +21,9 @@ export default function NewNote({ note, onDelete }) {
          </div>
 
          <div className='card-body'>
-            <textarea style={{ border: 'none', outline: 'none' }}></textarea>
+            <textarea style={{ border: 'none', outline: 'none' }}>
+               {text}
+            </textarea>
          </div>
       </NoteStyle>
    );
