@@ -1,4 +1,5 @@
 import React from 'react';
+import NavItem from './NavItem';
 
 export default function ResponsiveNav() {
    return (
@@ -11,11 +12,9 @@ export default function ResponsiveNav() {
          </div>
          <div className='navbar-collapse'>
             <ul className='navbar-items'>
-               <li className='nav-item'>
-                  <a href='#' className='nav-link'>
-                     Home
-                  </a>
-               </li>
+               <NavItem text='Home' active='active' />
+               <NavItem text='About' />
+               <NavItem text='Contact' />
             </ul>
          </div>
       </nav>
