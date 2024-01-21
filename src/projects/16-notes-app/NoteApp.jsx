@@ -12,10 +12,6 @@ export default function NoteApp() {
             style={{ gap: 25, flexWrap: 'wrap' }}
          >
             <NewNote />
-            <NewNote />
-            <NewNote />
-            <NewNote />
-            <NewNote />
          </div>
       </div>
    );
