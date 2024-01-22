@@ -20,21 +20,47 @@ export default function ResponsiveNav() {
          windowWidth < 600 &&
             setShowElement({ navBarNav: false, hamburgerIcon: true });
       };
-   });
+   }, []);
+
+   const openNav = () => {
+      setShowElement({
+         navBarNav: true,
+         hamburgerIcon: false,
+         closeIcon: true,
+         navOpen: true,
+      });
+   };
+
+   const closeNav = () => {
+      setShowElement({
+         navBarNav: false,
+         hamburgerIcon: true,
+         closeIcon: false,
+         navOpen: false,
+      });
+   };
 
    return (
-      <NavStyle className='navbar bg-primary text-light'>
+      <NavStyle
+         className={`navbar bg-primary text-light ${
+            showElement.navOpen && 'showNavbar'
+         }`}
+      >
          <div className='navbar-logo'>
             <a href='#' className='navbar-brand'>
                Navbar BM
             </a>
             {/* Open and close icons */}
-            {showElement.hamburgerIcon && <AiOutlineMenu />}
-            {showElement.closeIcon && <AiOutlineClose />}
+            {showElement.hamburgerIcon && <AiOutlineMenu onClick={openNav} />}
+            {showElement.closeIcon && <AiOutlineClose onClick={closeNav} />}
          </div>
          <div className='navbar-collapse'>
             {showElement.navBarNav ? (
-               <ul className='navbar-items'>
+               <ul
+                  className={`navbar-items ${
+                     showElement.navOpen && 'showNavbar'
+                  }`}
+               >
                   <NavItem text='Home' active='active' />
                   <NavItem text='About' />
                   <NavItem text='Contact' />
