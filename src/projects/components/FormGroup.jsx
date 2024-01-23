@@ -10,6 +10,7 @@ export default function FormGroup({
    onChange,
    className,
    readOnly = false,
+   reference,
 }) {
    return (
       <div className='form-group'>
@@ -23,6 +24,7 @@ export default function FormGroup({
             onChange={onChange}
             className={className}
             readOnly={readOnly}
+            ref={reference}
          />
       </div>
    );
