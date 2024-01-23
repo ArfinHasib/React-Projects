@@ -15,7 +15,8 @@ import './App.css';
 // import FilterContextApp from './projects/14-Filter-Context/FilterContextApp';
 // import RegForm from './projects/15-Reg-Form/RegForm';
 // import NoteApp from './projects/16-notes-app/NoteApp';
-import ResponsiveNav from './projects/17- Responsive-Nav/ResponsiveNav';
+// import ResponsiveNav from './projects/17- Responsive-Nav/ResponsiveNav';
+import TextAnimation from './projects/18- text-animation/TextAnimation';
 
 function App() {
    return (
@@ -36,7 +37,8 @@ function App() {
          {/* <FilterContextApp /> */}
          {/* <RegForm /> */}
          {/* <NoteApp /> */}
-         <ResponsiveNav />
+         {/* <ResponsiveNav /> */}
+         <TextAnimation />
       </div>
    );
 }
