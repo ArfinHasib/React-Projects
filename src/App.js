@@ -16,7 +16,8 @@ import './App.css';
 // import RegForm from './projects/15-Reg-Form/RegForm';
 // import NoteApp from './projects/16-notes-app/NoteApp';
 // import ResponsiveNav from './projects/17- Responsive-Nav/ResponsiveNav';
-import TextAnimation from './projects/18- text-animation/TextAnimation';
+// import TextAnimation from './projects/18- text-animation/TextAnimation';
+import CompoundInterest from './projects/19- compound-interest-rate/CompoundInterest';
 
 function App() {
    return (
@@ -38,7 +39,8 @@ function App() {
          {/* <RegForm /> */}
          {/* <NoteApp /> */}
          {/* <ResponsiveNav /> */}
-         <TextAnimation />
+         {/* <TextAnimation /> */}
+         <CompoundInterest />
       </div>
    );
 }
