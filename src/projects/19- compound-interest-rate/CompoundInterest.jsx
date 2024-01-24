@@ -16,6 +16,7 @@ export default function CompoundInterest() {
       years: '',
    });
 
+   document.body.style.background = `#14213d`;
    return (
       <div className='container'>
          <div
