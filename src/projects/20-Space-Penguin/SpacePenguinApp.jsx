@@ -8,11 +8,9 @@ import MoonObj from './objects/MoonObj';
 import Ship from './svgs/space-ship-rocket-svgrepo-com.svg';
 import Earth from './svgs/planet-earth-svgrepo-com.svg';
 import Moon from './svgs/moon-svgrepo-com.svg';
+import Penguin from './svgs/penguin-svgrepo-com.svg';
 
 export default function SpacePenguinApp() {
-   const [shipAction, setShipAction] = useState();
-   const [transformScale, setTransformScale] = useState(200);
-
    const [shipProps, setShipProps] = useState({
       action: '',
       scale: 200,
@@ -30,12 +28,24 @@ export default function SpacePenguinApp() {
       setShipProps({ action: 'land', scale: 200 });
    };
 
+   const [shipType, setShipType] = useState(Ship);
+   useEffect(() => {
+      if (shipProps.action === 'land') {
+         setShipType(Penguin);
+         setTimeout(() => {
+            setShipType(Ship);
+         }, 5500);
+      } else {
+         setShipType(Ship);
+      }
+   }, [shipProps.action]);
+
    return (
       <div className='space'>
          <Button text='Launch' btnClass='btn-danger' onClick={startShip} />
          <section className='env'>
             <SpaceShipObj
-               changeShip={Ship}
+               changeShip={shipType}
                scale={shipProps.scale}
                start={shipProps.action}
             />
