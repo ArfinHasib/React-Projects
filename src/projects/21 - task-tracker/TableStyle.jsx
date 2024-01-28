@@ -52,4 +52,5 @@ export const TableStyle = styled.div`
 export const NewTaskStyle = styled.li`
    display: flex;
    justify-content: space-between;
+   margin-top: 2rem;
 `;

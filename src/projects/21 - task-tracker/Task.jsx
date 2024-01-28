@@ -11,7 +11,12 @@ export default function Task({ date, type, setDate, setType, onClick }) {
          }}
       >
          <input type='datetime-local' value={date} onChange={setDate} />
-         <input type='text' value={type} onChange={setType} />
+         <input
+            type='text'
+            value={type}
+            onChange={setType}
+            placeholder='Specify the task'
+         />
          <Button text='+ Add' btnClass='btn' onClick={onClick} />
       </div>
    );

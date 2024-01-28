@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Title from '../components/Title';
 import { TableStyle } from './TableStyle';
 import Task from './Task';
+import NewTask from './NewTask';
 
 export default function TaskTrackerApp() {
    const [newTask, setNewTask] = useState({
@@ -18,6 +19,19 @@ export default function TaskTrackerApp() {
       setNewTask({ ...newTask, type: e.target.value });
    };
 
+   let tasks = [
+      {
+         date: '',
+         type: '',
+      },
+   ];
+
+   const [taskList, setTaskList] = useState(tasks);
+
+   const addNewTask = () => {
+      setTaskList([...taskList, { date: newTask.date, type: newTask.type }]);
+   };
+
    return (
       <>
          <Title text='Tasks Tracker' />
@@ -31,12 +45,14 @@ export default function TaskTrackerApp() {
                setDate={handleChangeDate}
                type={newTask.type}
                setType={handleChangeType}
+               onClick={addNewTask}
             />
             <ul className='table-row'>
-               <li className='completed'>task</li>
-               <li>task</li>
-               <li>task</li>
-               <li>task</li>
+               {taskList.map((task, index) =>
+                  task.date !== '' && task.type !== '' ? (
+                     <NewTask key={index} date={task.date} type={task.type} />
+                  ) : null
+               )}
             </ul>
          </TableStyle>
       </>
