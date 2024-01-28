@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Title from '../components/Title';
-import { TableStyle } from './TableStyle';
 import Task from './Task';
+import { TableStyle } from './TableStyle';
 import NewTask from './NewTask';
-
-export default function TaskTrackerApp() {
+export default function TasksTrackerApp() {
    const [newTask, setNewTask] = useState({
       date: '',
       type: '',
@@ -14,17 +13,11 @@ export default function TaskTrackerApp() {
    const handleChangeDate = (e) => {
       setNewTask({ ...newTask, date: e.target.value });
    };
-
    const handleChangeType = (e) => {
       setNewTask({ ...newTask, type: e.target.value });
    };
 
-   let tasks = [
-      {
-         date: '',
-         type: '',
-      },
-   ];
+   let tasks = [{ date: '', type: '' }];
 
    const [taskList, setTaskList] = useState(tasks);
 
@@ -32,11 +25,18 @@ export default function TaskTrackerApp() {
       setTaskList([...taskList, { date: newTask.date, type: newTask.type }]);
    };
 
+   const handleCompleted = (e) => {
+      e.target.classList.toggle('completed');
+   };
+
+   const handleDeleteTask = (e) => {
+      window.confirm('Delete this Task?') && e.target.parentElement.remove();
+   };
    return (
       <>
-         <Title text='Tasks Tracker' />
+         <Title text={'Tasks Tracker'} />
          <TableStyle>
-            <ul className='table-haed'>
+            <ul className='table-head'>
                <li>Date</li>
                <li>Task</li>
             </ul>
@@ -48,11 +48,17 @@ export default function TaskTrackerApp() {
                onClick={addNewTask}
             />
             <ul className='table-row'>
-               {taskList.map((task, index) =>
-                  task.date !== '' && task.type !== '' ? (
-                     <NewTask key={index} date={task.date} type={task.type} />
-                  ) : null
-               )}
+               {taskList.map((tas, index) => {
+                  return tas.date !== '' && tas.type !== '' ? (
+                     <NewTask
+                        key={index}
+                        date={tas.date}
+                        type={tas.type}
+                        onTaskClick={handleCompleted}
+                        onDelete={handleDeleteTask}
+                     />
+                  ) : null;
+               })}
             </ul>
          </TableStyle>
       </>
