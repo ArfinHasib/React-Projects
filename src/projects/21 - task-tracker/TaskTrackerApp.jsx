@@ -1,5 +1,6 @@
 import React from 'react';
 import Title from '../components/Title';
+import { TableStyle } from './TableStyle';
 
 export default function TaskTrackerApp() {
    return (
@@ -10,7 +11,12 @@ export default function TaskTrackerApp() {
                <li>Date</li>
                <li>Task</li>
                {/* <Task /> */}
-               <ul className='table-row'>task</ul>
+            </ul>
+            <ul className='table-row'>
+               <li className='completed'>task</li>
+               <li>task</li>
+               <li>task</li>
+               <li>task</li>
             </ul>
          </TableStyle>
       </>
