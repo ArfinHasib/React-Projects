@@ -19,7 +19,8 @@ import './App.css';
 // import TextAnimation from './projects/18- text-animation/TextAnimation';
 // import CompoundInterest from './projects/19- compound-interest-rate/CompoundInterest';
 // import SpacePenguinApp from './projects/20-Space-Penguin/SpacePenguinApp';
-import TaskTrackerApp from './projects/21 - task-tracker/TaskTrackerApp';
+// import TaskTrackerApp from './projects/21 - task-tracker/TaskTrackerApp';
+import CardGameUi from './projects/22-card-game-ui/CardGameUi';
 
 function App() {
    return (
@@ -44,7 +45,8 @@ function App() {
          {/* <TextAnimation /> */}
          {/* <CompoundInterest /> */}
          {/* <SpacePenguinApp /> */}
-         <TaskTrackerApp />
+         {/* <TaskTrackerApp /> */}
+         <CardGameUi />
       </div>
    );
 }
