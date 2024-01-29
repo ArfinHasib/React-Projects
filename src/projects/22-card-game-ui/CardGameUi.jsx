@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import Title from '../components/Title';
 import Button from '../components/Button';
 import './cardGame.css';
+import Card from './Card';
+
+// import units
+import SpearManImg from './svg/spear-man.svg';
+import WarHoursMan from './svg/warhorse-svgrepo-com.svg';
+import Archer from './svg/archer.svg';
 
 export default function CardGameUi() {
    const [start, setStart] = useState(false);
@@ -51,7 +57,57 @@ export default function CardGameUi() {
          ) : (
             <>
                <Title text='0-1' />
-               CardGame Ui
+               <main className='container m-auto game-board'>
+                  <section className='player_1'>
+                     <Card
+                        player={'player_1'}
+                        unitTypeName='Sword Cavalry'
+                        unitTypeImg={WarHoursMan}
+                     />
+                     <Card
+                        player={'player_1'}
+                        unitTypeName='Spear man'
+                        unitTypeImg={SpearManImg}
+                     />
+                     <Card
+                        player={'player_1'}
+                        unitTypeName='Sword Cavalry'
+                        unitTypeImg={Archer}
+                     />
+                     <Card
+                        player={'player_1'}
+                        unitTypeName='Spear man'
+                        unitTypeImg={SpearManImg}
+                     />
+                  </section>
+                  <section
+                     className='fog-of-warplayer_1'
+                     unitTypeName='Sword Cavalry'
+                     unitTypeImg={WarHoursMan}
+                  ></section>
+                  <section className='player_2'>
+                     <Card
+                        player={'player_2'}
+                        unitTypeName='Sword Cavalry'
+                        unitTypeImg={WarHoursMan}
+                     />
+                     <Card
+                        player={'player_2'}
+                        unitTypeName='Spear man'
+                        unitTypeImg={SpearManImg}
+                     />
+                     <Card
+                        player={'player_2'}
+                        unitTypeName='Sword Cavalry'
+                        unitTypeImg={WarHoursMan}
+                     />
+                     <Card
+                        player={'player_2'}
+                        unitTypeName='Spear man'
+                        unitTypeImg={Archer}
+                     />
+                  </section>
+               </main>
             </>
          )}
       </div>
