@@ -20,7 +20,8 @@ import './App.css';
 // import CompoundInterest from './projects/19- compound-interest-rate/CompoundInterest';
 // import SpacePenguinApp from './projects/20-Space-Penguin/SpacePenguinApp';
 // import TaskTrackerApp from './projects/21 - task-tracker/TaskTrackerApp';
-import CardGameUi from './projects/22-card-game-ui/CardGameUi';
+// import CardGameUi from './projects/22-card-game-ui/CardGameUi';
+import AnimatedLoginForm from './projects/23-animated-login-form/AnimatedLoginForm';
 
 function App() {
    return (
@@ -46,7 +47,8 @@ function App() {
          {/* <CompoundInterest /> */}
          {/* <SpacePenguinApp /> */}
          {/* <TaskTrackerApp /> */}
-         <CardGameUi />
+         {/* <CardGameUi /> */}
+         <AnimatedLoginForm />
       </div>
    );
 }
