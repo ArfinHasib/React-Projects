@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import FormGroup from '../components/FormGroup';
 import Button from '../components/Button';
-import { FormAnimation, FormStyle } from './FormStyle';
+import { FormAnimation, LoginContainer } from './FormStyle';
 
 export default function AnimatedLoginForm() {
    let emailRef = useRef(null);
@@ -11,15 +11,45 @@ export default function AnimatedLoginForm() {
       emailRef.current.focus();
    }, []);
 
+   const [rotate, setRotate] = useState({
+      animation: '',
+      borderColor: '',
+      background: '',
+   });
+
    let formStyle = {
       width: 350,
       marginTop: '15vh',
    };
 
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      if (emailRef.current.value !== '' && passWordRef.current.value !== '') {
+         setRotate({
+            animation: 'animate',
+            borderColor: 'green',
+            background: 'green',
+         });
+      } else {
+         setRotate({
+            animation: '',
+            borderColor: 'red',
+         });
+      }
+   };
+
    return (
-      <FormStyle>
-         <FormAnimation></FormAnimation>
-         <form className='card m-1 m-auto' style={formStyle}>
+      <LoginContainer className={rotate.animation}>
+         <FormAnimation
+            background={rotate.background}
+            borderColor={rotate.borderColor}
+            className={rotate.animation}
+         ></FormAnimation>
+         <form
+            className='card m-1 m-auto'
+            style={formStyle}
+            onSubmit={handleSubmit}
+         >
             <h2 className='subtitle my-2'>Login</h2>
             <FormGroup
                labelText='Email'
@@ -42,6 +72,6 @@ export default function AnimatedLoginForm() {
                </label>
             </div>
          </form>
-      </FormStyle>
+      </LoginContainer>
    );
 }
