@@ -3,7 +3,10 @@ import Button from '../components/Button';
 
 import { FaAddressBook, FaArrowsAlt } from 'react-icons/fa';
 
-export default function SearchFilter({ handleToggleContacts }) {
+export default function SearchFilter({
+   handleToggleContacts,
+   handleToggleSortAz,
+}) {
    return (
       <section className='text-center' style={{ paddingTop: '2rem' }}>
          <Button
@@ -18,7 +21,12 @@ export default function SearchFilter({ handleToggleContacts }) {
             className='mb-2 mx-1'
             style={{ padding: '.3rem .5rem' }}
          />
-         <Button btnClass='' text='' icon={<FaArrowsAlt />} />
+         <Button
+            btnClass=''
+            text=''
+            icon={<FaArrowsAlt />}
+            onClick={handleToggleSortAz}
+         />
       </section>
    );
 }
