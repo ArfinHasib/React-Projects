@@ -21,7 +21,8 @@ import './App.css';
 // import SpacePenguinApp from './projects/20-Space-Penguin/SpacePenguinApp';
 // import TaskTrackerApp from './projects/21 - task-tracker/TaskTrackerApp';
 // import CardGameUi from './projects/22-card-game-ui/CardGameUi';
-import AnimatedLoginForm from './projects/23-animated-login-form/AnimatedLoginForm';
+// import AnimatedLoginForm from './projects/23-animated-login-form/AnimatedLoginForm';
+import PhoneBookApp from './projects/24-phone-book/PhoneBookApp';
 
 function App() {
    return (
@@ -48,7 +49,8 @@ function App() {
          {/* <SpacePenguinApp /> */}
          {/* <TaskTrackerApp /> */}
          {/* <CardGameUi /> */}
-         <AnimatedLoginForm />
+         {/* <AnimatedLoginForm /> */}
+         <PhoneBookApp />
       </div>
    );
 }
