@@ -19,20 +19,19 @@ const ContactStyle = styled.li`
       border-radius: 50%;
    }
 `;
-
-export default function Contact({ icon, firstName, lastName, phoneNumber }) {
+export default function Contact({ icon, firstName, lastName, phoneNr }) {
    return (
       <ContactStyle>
          <div>
             {!icon ? <FaUserAlt className='text-info' /> : <img src={icon} />}
          </div>
          <div>{!firstName ? 'John' : firstName}</div>
-         <div>{!lastName ? 'Doe' : lastName}</div>
-         {!phoneNumber ? (
-            '555-555-555'
+         <div>{!lastName ? 'Smith' : lastName}</div>{' '}
+         {!phoneNr ? (
+            '000-000'
          ) : (
-            <a className='text-info' href={`tel:${phoneNumber}`}>
-               {phoneNumber}
+            <a className='text-info' href={`tel:${phoneNr}`}>
+               {phoneNr}
                <FaPhone className='text-success ml-1' />
             </a>
          )}
