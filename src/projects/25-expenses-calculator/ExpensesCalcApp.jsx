@@ -24,6 +24,28 @@ export default function ExpensesCalcApp() {
       setBudget(e.target.value);
    };
 
+   const handleCharge = (e) => {
+      setCharge(e.target.value);
+   };
+
+   const handleDate = (e) => {
+      setDate(e.target.value);
+   };
+
+   const handleAmount = (e) => {
+      setAmount(e.target.value);
+   };
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
+
+      let temp = expenses.localeCompare((item) => {
+         return item;
+      });
+
+      setExpenses(temp);
+   };
+
    let inputBudget = useRef(null);
    useEffect(() => {
       inputBudget.current.focus();
@@ -45,7 +67,15 @@ export default function ExpensesCalcApp() {
          >
             <aside>
                {/* ExpensesForm */}
-               <ExpensesForm date={date} amount={amount} charge={charge} />
+               <ExpensesForm
+                  date={date}
+                  amount={amount}
+                  charge={charge}
+                  handleDate={handleDate}
+                  handleCharge={handleCharge}
+                  handleAmount={handleAmount}
+                  handleSubmit={handleSubmit}
+               />
 
                <section className='card mt-2 bg-primary text-light'>
                   <div className='card-body'>
