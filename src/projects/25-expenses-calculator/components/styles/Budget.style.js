@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const BudgetStyle = styled.h3`
    display: flex;
+   gap: 1rem;
    input {
       outline: none;
       border: none;

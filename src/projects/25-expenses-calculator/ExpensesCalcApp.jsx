@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Title from '../components/Title';
 import ExpensesForm from './components/ExpensesForm';
 import ExpensesList from './components/ExpensesList';
@@ -15,6 +15,15 @@ export default function ExpensesCalcApp() {
    const [charge, setCharge] = useState('');
    // Budget
    const [budget, setBudget] = useState('');
+
+   const changeBudget = (e) => {
+      setBudget(e.target.value);
+   };
+
+   let inputBudget = useRef(null);
+   useEffect(() => {
+      inputBudget.current.focus();
+   }, []);
 
    return (
       <main className='container'>
@@ -37,7 +46,12 @@ export default function ExpensesCalcApp() {
                   <div className='card-body'>
                      <BudgetStyle>
                         <h3>Budget : $</h3>
-                        <input type='number' />
+                        <input
+                           type='number'
+                           value={budget}
+                           onChange={changeBudget}
+                           ref={inputBudget}
+                        />
                      </BudgetStyle>
                      <h3 className='mb-1'>Total Expenses: $</h3>
                      {/* Calc Economies */}
