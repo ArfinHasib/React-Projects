@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../../../components/Button';
-import FormGroup from '../../../components/FormGroup';
+import Button from '../../components/Button';
+import FormGroup from '../../components/FormGroup';
 import { MdEdit, MdAdd, MdCircle, MdAddCircle } from 'react-icons/md';
 
 export default function ExpensesForm({

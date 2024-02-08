@@ -1,6 +1,7 @@
 import React from 'react';
 import Title from '../components/Title';
-import ExpensesForm from './components/styles/ExpensesForm';
+import ExpensesForm from './components/ExpensesForm';
+import ExpensesList from './components/ExpensesList';
 
 export default function ExpensesCalcApp() {
    return (
@@ -33,7 +34,9 @@ export default function ExpensesCalcApp() {
                </section>
             </aside>
          </section>
-         <section>{/* Expenses List */}</section>
+         <section>
+            <ExpensesList />
+         </section>
       </main>
    );
 }
