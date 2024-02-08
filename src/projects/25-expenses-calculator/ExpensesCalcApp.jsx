@@ -4,6 +4,10 @@ import ExpensesForm from './components/ExpensesForm';
 import ExpensesList from './components/ExpensesList';
 import { BudgetStyle } from './components/styles/Budget.style';
 
+const initialExpenses = localStorage.getItem('expenses')
+   ? JSON.parse(localStorage.getItem('expenses'))
+   : [];
+
 export default function ExpensesCalcApp() {
    // All expenses
    const [expenses, setExpenses] = useState('');
@@ -23,7 +27,8 @@ export default function ExpensesCalcApp() {
    let inputBudget = useRef(null);
    useEffect(() => {
       inputBudget.current.focus();
-   }, []);
+      localStorage.setItem('expenses', JSON.stringify(expenses));
+   }, [expenses]);
 
    return (
       <main className='container'>
