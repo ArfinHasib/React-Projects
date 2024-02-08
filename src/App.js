@@ -23,6 +23,7 @@ import './App.css';
 // import CardGameUi from './projects/22-card-game-ui/CardGameUi';
 // import AnimatedLoginForm from './projects/23-animated-login-form/AnimatedLoginForm';
 import PhoneBookApp from './projects/24-phone-book/PhoneBookApp';
+import ExpensesCalcApp from './projects/25-expenses-calculator/ExpensesCalcApp';
 
 function App() {
    return (
@@ -50,7 +51,8 @@ function App() {
          {/* <TaskTrackerApp /> */}
          {/* <CardGameUi /> */}
          {/* <AnimatedLoginForm /> */}
-         <PhoneBookApp />
+         {/* <PhoneBookApp /> */}
+         <ExpensesCalcApp />
       </div>
    );
 }
