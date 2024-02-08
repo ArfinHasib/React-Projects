@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Title from '../components/Title';
 import ExpensesForm from './components/ExpensesForm';
 import ExpensesList from './components/ExpensesList';
 import { BudgetStyle } from './components/styles/Budget.style';
 
 export default function ExpensesCalcApp() {
+   // All expenses
+   const [expenses, setExpenses] = useState('');
+   // Single expense
+   const [date, setDate] = useState('');
+   // Single Amount
+   const [amount, setAmount] = useState('');
+   // Single charge
+   const [charge, setCharge] = useState('');
+   // Budget
+   const [budget, setBudget] = useState('');
+
    return (
       <main className='container'>
          <Title text='Expenses Calculator' />
@@ -20,7 +31,7 @@ export default function ExpensesCalcApp() {
          >
             <aside>
                {/* ExpensesForm */}
-               <ExpensesForm />
+               <ExpensesForm date={date} amount={amount} charge={charge} />
 
                <section className='card mt-2 bg-primary text-light'>
                   <div className='card-body'>
