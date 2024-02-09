@@ -70,6 +70,15 @@ export default function ExpensesCalcApp() {
       // Alert
    };
 
+   // Handle delete single expense
+   const handleDelete = (id) => {
+      if (window.confirm('Delete Expense?')) {
+         let filterdExpenses = expenses.filter((expense) => expense.id !== id);
+         setExpenses(filterdExpenses);
+         // todo: alert
+      }
+   };
+
    return (
       <main className='container'>
          <Title text='Expenses Calculator' />
@@ -115,7 +124,7 @@ export default function ExpensesCalcApp() {
             <section>
                <ExpensesList
                   expenses={expenses}
-                  // handleDelete={handleDelete}
+                  handleDelete={handleDelete}
                   // handleEdit={handleEdit}
                   handleClearAllExpenses={clearExpenses}
                />
