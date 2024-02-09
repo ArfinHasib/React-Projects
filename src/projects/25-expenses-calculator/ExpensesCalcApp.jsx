@@ -23,6 +23,8 @@ export default function ExpensesCalcApp() {
 
    // ids
    const [id, setId] = useState(0);
+   // Edit?
+   const [edit, setEdit] = useState(false);
 
    const changeBudget = (e) => {
       setBudget(e.target.value);
@@ -40,20 +42,26 @@ export default function ExpensesCalcApp() {
       setAmount(e.target.value);
    };
 
-   let edit;
    const handleSubmit = (e) => {
       e.preventDefault();
 
       if (date !== '' && charge !== '' && amount > 0) {
          if (edit) {
-            let temp = expenses.localeCompare((item) => {
+            let tempExpense = expenses.map((item) => {
                return item.id === id ? { ...item, date, charge, amount } : item;
             });
-            setExpenses(temp);
+            setExpenses(tempExpense);
+            setEdit(false);
+            // todo: Alert
          } else {
             const singleExpense = { id: uuidV4(), date, charge, amount };
             setExpenses([...expenses, singleExpense]);
+            // todo: Alert
          }
+         setCharge('');
+         setAmount('');
+      } else {
+         // todo: alert
       }
    };
 
@@ -79,6 +87,16 @@ export default function ExpensesCalcApp() {
       }
    };
 
+   // Handle Edit single expense
+   const handleEdit = (id) => {
+      let editedExpenses = expenses.find((expense) => expense.id === id);
+      let { charge, amount } = editedExpenses;
+      setCharge(charge);
+      setAmount(amount);
+      setId(id);
+      setEdit(true);
+   };
+
    return (
       <main className='container'>
          <Title text='Expenses Calculator' />
@@ -102,6 +120,7 @@ export default function ExpensesCalcApp() {
                   handleCharge={handleCharge}
                   handleAmount={handleAmount}
                   handleSubmit={handleSubmit}
+                  edit={edit}
                />
 
                <section className='card mt-2 bg-primary text-light'>
@@ -125,7 +144,7 @@ export default function ExpensesCalcApp() {
                <ExpensesList
                   expenses={expenses}
                   handleDelete={handleDelete}
-                  // handleEdit={handleEdit}
+                  handleEdit={handleEdit}
                   handleClearAllExpenses={clearExpenses}
                />
             </section>
