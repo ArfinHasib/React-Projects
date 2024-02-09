@@ -5,13 +5,13 @@ import ExpensesList from './components/ExpensesList';
 import { BudgetStyle } from './components/styles/Budget.style';
 import { v4 as uuidV4 } from 'uuid';
 
-const initialExpenses = localStorage.getItem('expenses')
+const initialExpense = localStorage.getItem('expenses')
    ? JSON.parse(localStorage.getItem('expenses'))
    : [];
 
 export default function ExpensesCalcApp() {
    // All expenses
-   const [expenses, setExpenses] = useState('');
+   const [expenses, setExpenses] = useState(initialExpense);
    // Single expense
    const [date, setDate] = useState('');
    // Single Amount
@@ -64,6 +64,12 @@ export default function ExpensesCalcApp() {
       localStorage.setItem('expenses', JSON.stringify(expenses));
    }, [expenses]);
 
+   // Handle Clear all Expense
+   const clearExpenses = () => {
+      setExpenses([]);
+      // Alert
+   };
+
    return (
       <main className='container'>
          <Title text='Expenses Calculator' />
@@ -106,9 +112,14 @@ export default function ExpensesCalcApp() {
                   </div>
                </section>
             </aside>
-         </section>
-         <section>
-            <ExpensesList />
+            <section>
+               <ExpensesList
+                  expenses={expenses}
+                  // handleDelete={handleDelete}
+                  // handleEdit={handleEdit}
+                  handleClearAllExpenses={clearExpenses}
+               />
+            </section>
          </section>
       </main>
    );
