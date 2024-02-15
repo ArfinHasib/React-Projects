@@ -10,13 +10,31 @@ export default function MortgageCalcApp() {
    const [homeValue, setHomeValue] = useState('');
    const [downPayment, setDownPayment] = useState('');
    const [loanAmount, setLoanAmount] = useState('');
-   const [interestAmount, setInterestAmount] = useState('');
+   const [interestRate, setInterestRate] = useState('');
    const [loanDuration, setLoanDuration] = useState('');
    const [monthlyPayment, setMonthlyPayment] = useState('');
 
    function calculateLoanAmount() {
       setLoanAmount(homeValue - downPayment);
       return loanAmount;
+   }
+
+   function calculateMonthlyPayment() {
+      function percentageToDecimal(percent) {
+         return percent / 12 / 100;
+      }
+      function yearsToMoths(years) {
+         return years * 12;
+      }
+      setMonthlyPayment(
+         (percentageToDecimal(interestRate) * loanAmount) /
+            (1 -
+               Math.pow(
+                  1 + percentageToDecimal(interestRate),
+                  -yearsToMoths(loanDuration)
+               ))
+      );
+      return monthlyPayment;
    }
 
    return (
@@ -59,15 +77,21 @@ export default function MortgageCalcApp() {
                   labelText='Interest Rate %'
                   inputType='number'
                   placeholder='Enter your intrest rate'
-                  values={interestAmount}
+                  values={interestRate}
+                  onInput={(e) => setInterestRate(e.target.value)}
                />
                <FormGroup
                   labelText='Loan Duration (years)'
                   placeholder='Enter your funds'
                   values={loanDuration}
+                  onInput={(e) => setLoanDuration(e.target.value)}
                />
             </div>
-            <Button btnClass='btn-info btn-block' text='Calculate' />
+            <Button
+               btnClass='btn-info btn-block'
+               text='Calculate'
+               onClick={calculateMonthlyPayment}
+            />
             {monthlyPayment && (
                <h4
                   className={`${(alertClass = 'alert-danger')}`}
