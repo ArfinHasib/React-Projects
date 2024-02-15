@@ -4,8 +4,6 @@ import FormGroup from '../components/FormGroup';
 import Button from '../components/Button';
 
 export default function MortgageCalcApp() {
-   let alertClass;
-
    // States
    const [homeValue, setHomeValue] = useState('');
    const [downPayment, setDownPayment] = useState('');
@@ -36,6 +34,12 @@ export default function MortgageCalcApp() {
       );
       return monthlyPayment;
    }
+
+   let alertClass;
+
+   monthlyPayment
+      ? (alertClass = 'alert-success')
+      : (alertClass = 'alert-danger');
 
    return (
       <div className='container mt-4 card' style={{ width: 500 }}>
@@ -92,12 +96,16 @@ export default function MortgageCalcApp() {
                text='Calculate'
                onClick={calculateMonthlyPayment}
             />
-            {monthlyPayment && (
-               <h4
-                  className={`${(alertClass = 'alert-danger')}`}
-                  style={{ width: 'auto', margin: '1rem 0' }}
-               ></h4>
-            )}
+
+            <h4
+               className={`${(alertClass = 'alert-danger')}`}
+               style={{ width: 'auto', margin: '1rem 0' }}
+            >
+               {console.log(typeof monthlyPayment)}
+               {monthlyPayment
+                  ? `Monthly Payment ${monthlyPayment.toFixed(2)}`
+                  : 'Complete all fields'}
+            </h4>
          </form>
       </div>
    );
