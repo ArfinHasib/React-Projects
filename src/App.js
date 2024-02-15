@@ -22,8 +22,9 @@ import './App.css';
 // import TaskTrackerApp from './projects/21 - task-tracker/TaskTrackerApp';
 // import CardGameUi from './projects/22-card-game-ui/CardGameUi';
 // import AnimatedLoginForm from './projects/23-animated-login-form/AnimatedLoginForm';
-import PhoneBookApp from './projects/24-phone-book/PhoneBookApp';
+// import PhoneBookApp from './projects/24-phone-book/PhoneBookApp';
 import ExpensesCalcApp from './projects/25-expenses-calculator/ExpensesCalcApp';
+import MortgageCalcApp from './projects/26-mortgate-calc/MortgageCalcApp';
 
 function App() {
    return (
@@ -52,7 +53,8 @@ function App() {
          {/* <CardGameUi /> */}
          {/* <AnimatedLoginForm /> */}
          {/* <PhoneBookApp /> */}
-         <ExpensesCalcApp />
+         {/* <ExpensesCalcApp /> */}
+         <MortgageCalcApp />
       </div>
    );
 }
