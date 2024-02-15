@@ -14,6 +14,11 @@ export default function MortgageCalcApp() {
    const [loanDuration, setLoanDuration] = useState('');
    const [monthlyPayment, setMonthlyPayment] = useState('');
 
+   function calculateLoanAmount() {
+      setLoanAmount(homeValue - downPayment);
+      return loanAmount;
+   }
+
    return (
       <div className='container mt-4 card' style={{ width: 500 }}>
          <Title text='Mortgage Calculator' />
@@ -27,12 +32,16 @@ export default function MortgageCalcApp() {
                   inputType='number'
                   placeholder='Enter the value of the home'
                   values={homeValue}
+                  onInput={(e) => setHomeValue(e.target.value)}
+                  onKeyUp={calculateLoanAmount}
                />
                <FormGroup
                   labelText='Down Payment'
                   inputType='number'
                   placeholder='Enter your funds'
                   values={downPayment}
+                  onInput={(e) => setDownPayment(e.target.value)}
+                  onKeyUp={calculateLoanAmount}
                />
             </div>
             <FormGroup
