@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../components/Button';
 import Courses from './components/Courses';
 import { coursesDB } from './db/coursesDB';
+import { currenciesDB } from './db/currenciesDB';
 
 document.body.style.backgroundColor = '#282c34';
 document.body.style.color = '#eee';
 
 export default function Store() {
+   const [currency, setCurrency] = useState(currenciesDB.Euro);
+
    return (
       <div className='container p-1'>
          <h4 className='mb-2'>Change Currency:</h4>
-         <Button btnClass='btn-light btn-sm' />
+         {Object.values(currenciesDB).map((curr) => (
+            <Button
+               btnClass='btn-light btn-sm'
+               key={curr.code}
+               text={curr.code}
+               onClick={() => setCurrency(curr)}
+            />
+         ))}
          <header className='text-center my-4'>
             <h1 className='title fs-xl'>Course</h1>
             <h2 className='text-uppercase mb-2'>Become a web developer</h2>
