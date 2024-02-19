@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../components/Button';
+import Courses from './components/Courses';
 
 document.body.style.backgroundColor = '#282c34';
 document.body.style.color = '#eee';
@@ -18,6 +19,7 @@ export default function Store() {
                nesciunt omnis!
             </p>
          </header>
+         <Courses />
       </div>
    );
 }
