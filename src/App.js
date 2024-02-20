@@ -25,7 +25,8 @@ import './App.css';
 // import PhoneBookApp from './projects/24-phone-book/PhoneBookApp';
 // import ExpensesCalcApp from './projects/25-expenses-calculator/ExpensesCalcApp';
 // import MortgageCalcApp from './projects/26-mortgate-calc/MortgageCalcApp';
-import Store from './projects/27- course-store/Store';
+// import Store from './projects/27- course-store/Store';
+import AuthApp from './projects/28-auth-app/AuthApp';
 
 function App() {
    return (
@@ -56,7 +57,8 @@ function App() {
          {/* <PhoneBookApp /> */}
          {/* <ExpensesCalcApp /> */}
          {/* <MortgageCalcApp /> */}
-         <Store />
+         {/* <Store /> */}
+         <AuthApp />
       </div>
    );
 }
