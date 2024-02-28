@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-
+import SpeechNarrator from './SpeechNarrator';
 export default function SynthesizerApp() {
-   const [text, SetText] = useState('');
-
+   const [text, setText] = useState('text');
    return (
       <div className='container d-flex flex-column'>
-         {/* <SppechNarator /> */}
+         <SpeechNarrator text={text} />
          <textarea
-            id=''
             cols='30'
             rows='10'
             value={text}
-            onChange={(e) => SetText(e.target.value)}
+            onChange={(e) => setText(e.target.value)}
          ></textarea>
       </div>
    );
